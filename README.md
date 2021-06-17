@@ -9,6 +9,6 @@ yarn start
 
 ## Документация API
 
-Документация доступна по адресу `localhost:3000/api-docs`.
+Документация доступна по адресу `localhost:3000/v2/api-docs`.
 
 Документация сгенерирована при помощи [Swagger](https://swagger.io/)
