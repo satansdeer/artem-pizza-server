@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
 
 /**
  * @swagger
- * /admin-auth/login:
+ * /v2/auth/login:
  *   post:
  *     tags: ["Admin Auth"]
  *     summary: Авторизоваться в админке
@@ -59,7 +59,7 @@ router.post("/login", (req, res, next) => {
 
 /**
  * @swagger
- * /admin-auth/logout:
+ * /v2/auth/logout:
  *   get:
  *     tags: ["Admin Auth"]
  *     summary: Разлогиниться

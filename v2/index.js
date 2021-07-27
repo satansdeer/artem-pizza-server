@@ -1,4 +1,5 @@
 const express = require("express");
+const { configureDb } = require("../db/configureDb");
 const { swaggerUI } = require("./swaggerUI")
 const authRouter = require("./auth/routes");
 const ingredientsRouter = require("./ingredients/routes");
@@ -11,6 +12,7 @@ const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 
 const app = express()
+app.db = configureDb();
 
 app.use(passport.initialize());
 
