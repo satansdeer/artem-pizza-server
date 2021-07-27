@@ -1,0 +1,8 @@
+{
+  "verbose": true,
+  "ignore": ["*.spec.js", "fixtures/*"],
+	"watch": ["v1", "v2"],
+  "execMap": {
+    "js": "node"
+  }
+}

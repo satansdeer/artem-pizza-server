@@ -1,5 +1,4 @@
 const express = require("express");
-const passport = require("passport");
 const router = express.Router();
 const { nanoid } = require("nanoid");
 const idlength = 8;
@@ -138,44 +137,38 @@ router.get("/:ingredientId", (req, res) => {
  *         description: Ошибка на сервере
  *
  */
-router.post(
-  "/",
-  passport.authenticate("jwt", {
-    session: false,
-  }),
-  (req, res) => {
-    try {
-      const { image, thumbnail } = req.files;
-      const { name, slug, price, category } = req.body;
+router.post("/", (req, res) => {
+  try {
+    const { image, thumbnail } = req.files;
+    const { name, slug, price, category } = req.body;
 
-      const imageExt = image.name.split(".").pop();
-      const fileName = `${slug}.${imageExt}`;
+    const imageExt = image.name.split(".").pop();
+    const fileName = `${slug}.${imageExt}`;
 
-      image.mv(`./uploads/${fileName}`);
+    image.mv(`./uploads/${fileName}`);
 
-      const thumbExt = thumbnail.name.split(".").pop();
-      const thumbFileName = `${slug}-thumb.${thumbExt}`;
+    const thumbExt = thumbnail.name.split(".").pop();
+    const thumbFileName = `${slug}-thumb.${thumbExt}`;
 
-      thumbnail.mv(`./uploads/${thumbFileName}`);
+    thumbnail.mv(`./uploads/${thumbFileName}`);
 
-      const newIngredient = {
-        id: nanoid(idlength),
-        name,
-        slug,
-        price,
-        category,
-        image: fileName,
-        thumbnail: thumbFileName,
-      };
+    const newIngredient = {
+      id: nanoid(idlength),
+      name,
+      slug,
+      price,
+      category,
+      image: fileName,
+      thumbnail: thumbFileName,
+    };
 
-      req.app.db.get("ingredients").push(newIngredient).write();
+    req.app.db.get("ingredients").push(newIngredient).write();
 
-      return res.send(newIngredient);
-    } catch (e) {
-      return res.status(500).send(e);
-    }
+    return res.send(newIngredient);
+  } catch (e) {
+    return res.status(500).send(e);
   }
-);
+});
 
 /**
  * @swagger
