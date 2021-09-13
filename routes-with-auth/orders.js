@@ -68,7 +68,7 @@ const idlength = 8;
 
 /**
  * @swagger
- * /orders:
+ * /v2/orders:
  *   get:
  *     tags: [Orders]
  *     Summary: Показать все заказы
@@ -90,7 +90,7 @@ router.get("/", (req, res) => {
 
 /**
  * @swagger
- * /orders:
+ * /v2/orders:
  *   post:
  *     tags: [Orders]
  *     description: Создать новый заказ
