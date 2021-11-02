@@ -66,7 +66,7 @@ const idlength = 8;
 
 /**
  * @swagger
- * /ingredients:
+ * /v1/ingredients:
  *   get:
  *     tags: [Ingredients]
  *     summary: Показать все ингредиенты
@@ -89,7 +89,7 @@ router.get("/", (req, res) => {
 
 /**
  * @swagger
- * /ingredients/{ingredientId}:
+ * /v1/ingredients/{ingredientId}:
  *   get:
  *     tags: [Ingredients]
  *     summary: Показать информацию о конкретном ингредиенте
@@ -115,7 +115,7 @@ router.get("/:ingredientId", (req, res) => {
 
 /**
  * @swagger
- * /ingredients:
+ * /v1/ingredients:
  *   post:
  *     tags: [Ingredients]
  *     summary: Создать новый ингредиент
@@ -179,7 +179,7 @@ router.post(
 
 /**
  * @swagger
- * /ingredients/{ingredientId}:
+ * /v1/ingredients/{ingredientId}:
  *   put:
  *     tags: [Ingredients]
  *     summary: Обновнить информацию об ингредиенте
@@ -237,7 +237,7 @@ router.put("/:ingredientId", (req, res) => {
 
 /**
  * @swagger
- * /ingredients/{ingredientId}:
+ * /v1/ingredients/{ingredientId}:
  *   delete:
  *     tags: [Ingredients]
  *     summary: Удалить ингредиент
